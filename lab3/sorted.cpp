@@ -1,11 +1,21 @@
-#include "include/sorted.hpp"
+#include "sorted.hpp"
 
-bool isSorted(/*std::ifstream& file1, std::ifstream& file2*/)
+bool isSorted(std::string fileName)
 {
-	bool isTrue = true;
+	std::ifstream inFile;
+	inFile.open(fileName);
 
-	
+	int current, previous;
+	inFile >> previous;
 
-	return isTrue;
+	while(inFile >> current)
+	{
+		if(previous>current)
+		{
+			return false;
+		}
+		previous = current;
+	}
+	return true;
 }
 

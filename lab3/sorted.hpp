@@ -2,7 +2,8 @@
 #define SORTED_H
 
 #include <fstream>
+#include <string>
 
-bool isSorted(/*std::ifstream& file1, std::ifstream& file2*/);
+bool isSorted(std::string fileName);
 
 #endif 
