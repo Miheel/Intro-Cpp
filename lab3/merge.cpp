@@ -30,14 +30,23 @@ void merge(std::string fileName1, std::string fileName2, std::string mergedFile)
 		
 	while(!inFile1.eof())
 	{
+		row++;
 		outfile << inFromFile1 << " ";
 		inFile1 >> inFromFile1;
+		if(row % 10 == 0)
+			outfile << "\n";
+
+
 	}
 	
 	while(!inFile2.eof())
 	{
+		row++;
 		outfile << inFromFile2 << " ";
 		inFile2 >> inFromFile2;
+		if(row % 10 == 0)
+			outfile << "\n";
+
 	}
 
 	inFile1.close();
