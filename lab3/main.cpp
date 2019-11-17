@@ -2,14 +2,22 @@
 #include <fstream>
 
 #include "sorted.hpp"
-
+#include "merge.hpp"
 int main()
 
 {
-
-	bool sortBool = isSorted("test");
+	if(isSorted("A1"))
+		std::cout << "Is sorted" << std::endl;
+	else
+		std::cout << "Is not sorted" << std::endl;
 	
-	std::cout << sortBool << std::endl;
+	if (isSorted("A") && isSorted("B"))
+		merge("A", "B", "C");
+	
+	if (isSorted("C"))
+		std::cout << "Is sorted" << std::endl;
+	else
+		std::cout << "Is not sorted" << std::endl;
 
 	return 0;
 }
