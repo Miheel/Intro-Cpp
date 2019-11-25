@@ -15,7 +15,7 @@ int main()
 		getline(inFile, personID);
 		getline(inFile, road);
 		
-		if (static_cast<int>(personID[8]) % 2 == 0)
+		if ((static_cast<int>(personID[8]) - '0') % 2 == 0)
 			gender[2] = 'F';
 		else
 			gender[2] = 'M';
