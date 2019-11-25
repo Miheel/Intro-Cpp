@@ -1,10 +1,10 @@
-all: test clean
+all: lab2
 
-obj: main.cpp
-	g++ -c main.cpp -o main.o
+main.o: main.cpp
+	g++ -g -c -Wall -Wextra -Wpedantic main.cpp -o main.o
 
-exe: obj
-	g++ main.o -o lab2
+lab2: main.o
+	g++ -g -Wall -Wextra -Wpedantic main.o -o lab2
 
 test: exe
 	./lab2 < names.txt
