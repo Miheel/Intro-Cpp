@@ -3,6 +3,12 @@
 
 #include "sorted.hpp"
 #include "merge.hpp"
+
+//Name: Mikae Leuf
+//Datum: 2019-11-26
+//Kurs: Introduktion till programering
+//Lab: lab3
+
 int main()
 
 {

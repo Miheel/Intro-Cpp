@@ -4,7 +4,7 @@
 
 //Namn: Mikael Leuf
 //Datum: 2019-11-25
-//Kurs: DT028G_DT178G - Introduktion till programering
+//Kurs: Introduktion till programering
 //Lab: lab2
 
 int main()

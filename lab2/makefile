@@ -6,7 +6,7 @@ main.o: main.cpp
 lab2: main.o
 	g++ -g -Wall -Wextra -Wpedantic main.o -o lab2
 
-test: exe
+test: lab2
 	./lab2 < names.txt
 clean:
 	rm lab2 main.o

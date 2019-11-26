@@ -1,10 +1,10 @@
 #include <iostream>
 #include <limits>
 
-//namn: Mikael Leuf
+//Namn: Mikael Leuf
 //Datum: 2019-11-13
-//Kurs: DT028G_DT178G - Introduktion till programering
-//lab: lab1
+//Kurs: Introduktion till programering
+//Lab: lab1
 
 int main()
 {
