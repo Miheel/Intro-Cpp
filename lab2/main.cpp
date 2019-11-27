@@ -10,6 +10,8 @@
 int main()
 {
 	std::ifstream inFile;
+	std::ofstream outFile("namesOut.txt");
+
 	std::string foreName, surName, personID, road;
 	std::string gender = " [ ]";
 	
@@ -30,11 +32,12 @@ int main()
 		else
 			gender[2] = 'M';
 		
-		//print the names
-		std::cout << surName << ", " << foreName << gender << std::endl << road << std::endl;
+		//print the names to a new file
+		outFile << surName << ", " << foreName << gender << std::endl << road << "\n\n";
 	}
 	
-	//close the file
+	//close the files
 	inFile.close();
+	outFile.close();
 	return 0;
 }
