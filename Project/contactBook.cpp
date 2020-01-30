@@ -5,7 +5,6 @@
 
 #include "contactBook.h"
 
-//Adds a contact to a file with help of user dialog
 void add(const std::string &fileName)
 {
 	Contact contact;
@@ -20,10 +19,10 @@ void add(const std::string &fileName)
 	else
 	{
 		std::cout << "Write the details of the person you would like to add as a contact" << std::endl;
-		std::cout << "Name: ";
+		std::cout << "Name (Firstname Surename): ";
 		isValidInput(contact.name, REGFILTER::NAME);
 
-		std::cout << "Addres (Roadname number): ";
+		std::cout << "Addres (Roadname number Ex:road 12): ";
 		isValidInput(contact.addres, REGFILTER::ADDER);
 
 		std::cout << "e-Mail (email@example.com): ";
@@ -44,7 +43,6 @@ void add(const std::string &fileName)
 	}
 }
 
-//Remove a contact from a file with help of user dialog
 void remove(const std::string &fileName)
 {
 	Contact contact;
@@ -61,9 +59,9 @@ void remove(const std::string &fileName)
 	else
 	{
 		std::cout << "write a searchterm: ";
-		std::cin >> searchTerm;
+		std::getline(std::cin, searchTerm);
 
-		char deleteChoice;
+		std::string deleteChoice;
 
 		//loop over the file
 		while (inFile >> contact)
@@ -74,18 +72,21 @@ void remove(const std::string &fileName)
 			{
 				std::cout << "Do you wish to delete the found entry " << std::endl;
 				std::cout << "delete (y/n) " << contact << std::endl;
-				std::cin >> deleteChoice;
+				
 
 				bool deleteLoop = true;
 				while (deleteLoop)
 				{
+
+					std::getline(std::cin, deleteChoice);
+
 					//deside if to delete entry or not
-					if (deleteChoice == 'n') 
+					if (deleteChoice[0] == 'n' && deleteChoice.size() == 1) 
 					{
 						contactsToKeep.push_back(contact);
 						deleteLoop = false;
 					}
-					else if (deleteChoice == 'y')
+					else if (deleteChoice[0] == 'y' && deleteChoice.size() == 1)
 					{
 						deleteLoop = false;
 					}
@@ -126,7 +127,6 @@ void remove(const std::string &fileName)
 	}
 }
 
-//Searches for a contact in a file with help of user dialog
 void search(const std::string &fileName)
 {
 	Contact contact;
@@ -144,7 +144,7 @@ void search(const std::string &fileName)
 	else
 	{
 		std::cout << "Write a searchterm: ";
-		std::cin >> searchTerm;
+		std::getline(std::cin, searchTerm);
 
 		while (inFile >> contact)
 		{

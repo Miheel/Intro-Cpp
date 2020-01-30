@@ -7,6 +7,10 @@
 //Lab: Project Contact
 
 #include <vector>
+#include <fstream>
+#include <iostream>
+#include <string>
+#include "contact.h"
 #include "validInput.h"
 
 /**

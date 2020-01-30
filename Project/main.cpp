@@ -27,7 +27,7 @@ int main()
 		}
 
 		//switch statement to switch around index 0 of input string
-		switch (static_cast<char>(menueChoice[0]))
+		switch (menueChoice[0])
 		{
 		case 'A':
 		case 'a':

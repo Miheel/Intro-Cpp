@@ -6,8 +6,10 @@
 //Kurs: Introduktion till programering
 //Lab: Project Contact
 
+#include <iostream>
+#include <string>
 #include <regex>
-#include "contact.h"
+//#include "contact.h"
 
 
 enum REGFILTER {

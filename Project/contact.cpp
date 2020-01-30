@@ -8,7 +8,6 @@
 const char Contact::DELIMITER = '|';
 const int Contact::NR_OF_MEMBERS = 6;
 
-//Transform any given string of chars to uppercase.
 std::string transformToupper(const std::string & other)
 {
 	std::string tmpStr;
@@ -16,7 +15,6 @@ std::string transformToupper(const std::string & other)
 	return tmpStr;
 }
 
-//Overloaded insertion << operator to write content of a struct.
 std::ostream & operator<<(std::ostream & os, const Contact & other)
 {
 	return os << other.name << other.DELIMITER
@@ -27,7 +25,6 @@ std::ostream & operator<<(std::ostream & os, const Contact & other)
 		<< other.misc << other.DELIMITER << std::endl;
 }
 
-//Overloaded extraction >> operator to read content to a struct.
 std::istream & operator>>(std::istream & is, Contact & other)
 {
 	std::string temparr[other.NR_OF_MEMBERS];
@@ -53,7 +50,6 @@ std::istream & operator>>(std::istream & is, Contact & other)
 	return is;
 }
 
-//Returns true if a given case insensitive string exists in any struct member variable.
 bool Contact::find(const std::string & sTerm)
 {
 	std::string tmpSTerm = transformToupper(sTerm);

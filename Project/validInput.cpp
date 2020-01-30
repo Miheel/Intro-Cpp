@@ -5,13 +5,12 @@
 
 #include "validInput.h"
 
-//Compares a given string with a regular expression,to determine if the string is a valid input.
 void isValidInput(std::string &contactMember, const REGFILTER &regFilter)
 {
 	bool isValid = false;
 	std::regex regularFilter;
-	std::string errMsg = "The line can only contain the folowing characters: ";
-
+	std::string errFormMsg = "The string must be on the specified format: ";
+	std::string errContMsg = "Can only contain the folowing characters";
 	while (!isValid)
 	{
 		std::getline(std::cin, contactMember);
@@ -19,11 +18,11 @@ void isValidInput(std::string &contactMember, const REGFILTER &regFilter)
 		switch (regFilter)
 		{
 		case NAME:
-			regularFilter = ("[^|]+");
+			regularFilter = ("[A-Za-z ]+");
 
 			if (std::regex_match(contactMember, regularFilter)) isValid = true;
 
-			else std::cout << errMsg << "Letters" << std::endl;
+			else std::cout << errFormMsg << "Forename surename" << std::endl;
 
 			break;
 
@@ -32,16 +31,16 @@ void isValidInput(std::string &contactMember, const REGFILTER &regFilter)
 
 			if (std::regex_match(contactMember, regularFilter)) isValid = true;
 
-			else std::cout << errMsg << "Letters Numbers '-' and space" << std::endl;
+			else std::cout << errFormMsg << "Roadname nr" << std::endl;
 
 			break;
 
 		case MAIL:
-			regularFilter = ("[A-Za-z0-9._%+-]{1,20}@[A-Za-z0-9-]{2,20}(\.[A-Za-z]{2,3}){1,2}");
+			regularFilter = ("[A-Za-z0-9._%+-]{1,20}@[A-Za-z0-9-]{2,20}(\\.[A-Za-z]{2,3}){1,2}");
 
 			if (std::regex_match(contactMember, regularFilter)) isValid = true;
 
-			else std::cout << errMsg << "Letters Numbers and '._%+-'" << std::endl;
+			else std::cout << errFormMsg << "(email@example.com)\n" << errContMsg << "Letters, Numbers and '._%+-'" << std::endl;
 
 			break;
 
@@ -50,7 +49,7 @@ void isValidInput(std::string &contactMember, const REGFILTER &regFilter)
 
 			if (std::regex_match(contactMember, regularFilter)) isValid = true;
 
-			else std::cout << errMsg << "Numbers and '-'" << std::endl;
+			else std::cout << errFormMsg << "070-123 45 67" << std::endl;
 
 			break;
 
@@ -59,7 +58,7 @@ void isValidInput(std::string &contactMember, const REGFILTER &regFilter)
 
 			if (std::regex_match(contactMember, regularFilter)) isValid = true;
 
-			else std::cout << errMsg << "Numbers and '-'" << std::endl;
+			else std::cout << errFormMsg << "nnnn-nn-nn" << std::endl;
 
 			break;
 
@@ -68,7 +67,7 @@ void isValidInput(std::string &contactMember, const REGFILTER &regFilter)
 
 			if (std::regex_match(contactMember, regularFilter)) isValid = true;
 
-			else std::cout << errMsg << "Letters and numbers" << std::endl;
+			else std::cout << "the string cant contain the pipe char '|'" << std::endl;
 
 			break;
 		}
